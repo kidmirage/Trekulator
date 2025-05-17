@@ -118,7 +118,7 @@ void playSound() {
   audio.setVolume(18);
   isPlaySound = true;
   drawLEDs(TFT_RED);
-  audio.connecttoFS(SPIFFS, "/Trekulator_Sound.mp3");
+  audio.connecttoFS(SD, "/Trekulator_Sound.mp3");
 }
 
 // Check the pad for a key press.
@@ -601,7 +601,7 @@ void showImages() {
       delay(3000);
     }
   }
-  TJpgDec.drawFsJpg(39, 34, "/Background_Resized.jpg");
+  TJpgDec.drawFsJpg(39, 34, "/Background_Image.jpg");
 }
 
 // Initialize the Trekulator code.
@@ -718,8 +718,7 @@ void setup() {
   TJpgDec.setCallback(tft_output);
 
   // Draw the image into the screen window.
-  TJpgDec.drawSdJpg(39, 34, "/Background_Resized.jpg");
-  //TJpgDec.drawSdJpg(39, 34, "/images/image03.jpg");
+  TJpgDec.drawSdJpg(39, 34, "/Background_Image.jpg");
 
   // Setup the 1 second timer interrupt.
   My_timer = timerBegin(1000000);
